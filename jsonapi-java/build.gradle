@@ -1,0 +1,33 @@
+apply plugin: 'java'
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'jsonapi-java'
+
+    publishedGroupId = 'com.jsonapi'
+    libraryName = 'JsonApi'
+    artifact = 'jsonapi-java'
+
+    libraryDescription = 'A Java library that can be used to convert JSON API responses to Java Objects.'
+
+    siteUrl = 'https://github.com/RokkinCat/jsonapi-android'
+    gitUrl = 'https://github.com/RokkinCat/jsonapi-android.git'
+
+    libraryVersion = '0.1.0'
+
+    developerId = 'RokkinCat'
+    developerName = 'Greg Billetdeaux'
+    developerEmail = 'greg@rokkincat.com'
+
+    licenseName = 'The MIT License (MIT)'
+    licenseUrl = 'http://opensource.org/licenses/mit-license.php'
+    allLicenses = ["MIT"]
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile 'com.eclipsesource.minimal-json:minimal-json:0.9.4'
+}
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
