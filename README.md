@@ -50,21 +50,27 @@ This response is describing an article written by Dan Gebhardt. In the root leve
 	
 	    @Relationship(“author”)
 	    Person author;
+
+	    @Link("self")
+	    String self;
 	}
 
 	public class Person {
-			@JsonApiName(“first-name”)
-			String firstName;
-			
-			@JsonApiName(“last-name”)			
-			String lastName;
-			
-			String twitter;
+        @JsonApiName(“first-name”)
+        String firstName;
+
+        @JsonApiName(“last-name”)
+        String lastName;
+
+        String twitter;
+
+        @Link("self")
+        String self;
 	}
 
-Two things to notice here. `@Relationship` and `@JsonApiName`. These are the two key annotations for using this library. `@JsonApiName` tells the library when a Java instance variable’s name is not formatted the same as the JSON API response. It is similar to GSON’s `@SerializedName`. Use this when you don’t want to name your variables the same as the server response.
+Three things to notice here. `@Relationship`, `@JsonApiName`, and `@Link`. These are the key annotations for using this library. `@JsonApiName` tells the library when a Java instance variable’s name is not formatted the same as the JSON API response. It is similar to GSON’s `@SerializedName`. Use this when you don’t want to name your variables the same as the server response.
 
-`@Relationship` tells the library that this attribute should be coming from the `relationships` array instead of the `attributes` array. 
+`@Relationship` tells the library that this attribute should be coming from the `relationships` array instead of the `attributes` array. And `@Link` tells the library that this attribute should be coming from the `links` array instead of the `attributes` array.
 
 Now lets check out how we turn that JSON API response into useable Java objects.
 
